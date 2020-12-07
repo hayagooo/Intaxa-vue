@@ -1,0 +1,15 @@
+$color-blue: #0D6AE3;
+$color-cyan: #46FFFF;
+$color-black: #000;
+.bookmarkCard {
+  background-color: white;
+  position: relative;
+  height: 400px;
+  img {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}

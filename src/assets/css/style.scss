@@ -1,0 +1,335 @@
+$color-blue: #0D6AE3;
+$color-cyan: #46FFFF;
+
+@font-face {
+  font-family: viga;
+  src: url('/../fonts/Viga-Regular.ttf');
+}
+.viga {
+  font-family: viga;
+}
+.bg-blue {
+  background-color: $color-blue !important;
+}
+.bg-cyan {
+  background-color: $color-cyan !important;
+}
+.text-blue {
+  color: $color-blue;
+}
+.bg-main {
+  overflow-y: auto !important;
+  &:hover {
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: rgba($color: #0D6AE3, $alpha: 0.2);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #0D6AE3;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #084697;
+    }
+  }
+  &::-webkit-scrollbar {
+    transition: all .3s ease-in-out;
+    width: 0px;
+  }
+  &::-webkit-scrollbar-track {
+    transition: all .3s ease-in-out;
+    background-color: rgba($color: #0D6AE3, $alpha: 0);
+  }
+  &::-webkit-scrollbar-thumb {
+    transition: all .3s ease-in-out;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    transition: all .3s ease-in-out;
+    background-color: transparent;
+  }
+}
+.input-code {
+  display: inline-block !important;
+  letter-spacing: 10px !important;
+  width: auto !important;
+  font-size: 1.4rem !important;
+}
+* {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba($color: #0D6AE3, $alpha: 0.2);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #0D6AE3;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #084697;
+  }
+}
+.v-center {
+  top: 50%;
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+}
+.text-cyan {
+  color: $color-cyan;
+}
+.text-sm {
+  font-size: .75rem !important;
+}
+.line-blue {
+  width: 70px;
+  height: 6px;
+}
+.bg-full-page {
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden !important;
+}
+.bg-gradient-blue-cyan {
+  background: linear-gradient(to right bottom, $color-blue, $color-cyan);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.rad {
+  border-radius: 16px !important;
+}
+.rad-md {
+  border-radius: 10px !important;
+}
+.mShadow {
+  box-shadow: 2px 44px 58px -5px rgba(0, 0, 0, 0.11);
+}
+.text-black {
+  color: black !important;
+}
+.modal-content {
+  border: none !important;
+  border-radius: 10px !important;
+}
+.closable-modal {
+  position: absolute;
+  top: -14px;
+  background-color: white;
+  border-radius: 30px;
+  right: 0px;
+  line-height: 30px;
+  border: 3px solid rgba($color: #fff, $alpha: .2);
+  box-sizing: content-box;
+  width: 30px;
+  height: 30px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.text-gold {
+  color: #ffd720;
+}
+.btn-transparent {
+  background-color: transparent !important;
+}
+.btn-ability {
+  border: 2px solid white !important;
+  border-radius: 10px !important;
+  &:hover {
+    border: 2px solid transparent !important;
+    background-color: white !important;
+    color: black !important;
+    box-shadow: 0px .25rem .6rem -.15rem rgba(0, 0, 0, 0.2);
+  }
+}
+.btn-gradient-blue-cyan {
+  background: linear-gradient(to right, $color-blue, $color-cyan);
+  border: none !important;
+  outline: none !important;
+  transition: all .3s ease-in-out;
+  &:hover {
+    background: linear-gradient(to right, #06479d, #26c5c5);
+  }
+}
+.btn-white {
+  background-color: white !important;
+  border: none !important;
+  outline: none !important;
+  color: black !important;
+  transition: all 3s;
+  &:hover {
+    background-color: gainsboro !important;
+    box-shadow: 2px 44px 58px -5px rgba(0, 0, 0, 0.11);
+  }
+}
+.btn-blue-white {
+  background-color: $color-blue !important;
+  border: none !important;
+  outline: none !important;
+  color: black !important;
+  transition: all 3s;
+  &:hover {
+    background-color: #06479d !important;
+    box-shadow: 2px 44px 58px -5px rgba(0, 0, 0, 0.11);
+  }
+}
+.bg-img {
+  background-position: center;
+  background-size: cover;
+  transition: all .3s ease-in-out;
+  background-attachment: fixed;
+}
+.blur-el {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+button.px-4 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+.toggleAside {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: white;
+  z-index: 100;
+  box-shadow: 5px 0px 10px rgba($color: #000000, $alpha: .15);
+  right: -20px;
+  top: 45%;
+  z-index: 1000;
+  bottom: 55%;
+  transform: rotate(0deg) !important;
+  transition: all .3s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background-color: gainsboro;
+  }
+}
+.toggleAside.hide {
+  transform: rotate(180deg) !important;
+  right: -20px;
+  box-shadow: -5px 0px 10px rgba($color: #000000, $alpha: .15) !important;
+}
+.toggleAsideRight {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: white;
+  z-index: 100;
+  box-shadow: -5px 0px 10px rgba($color: #000000, $alpha: .15);
+  left: -20px;
+  top: 45%;
+  bottom: 55%;
+  transition: all .3s ease-in-out;
+  transform: rotate(0deg);
+  &:hover {
+    cursor: pointer;
+    background-color: gainsboro;
+  }
+}
+.toggleAsideRight.hide {
+  transform: rotate(180deg) !important;
+  left: -20px;
+  box-shadow: 5px 0px 10px rgba($color: #000000, $alpha: .15) !important;
+}
+.position-md-fixed {
+  position: relative;
+  z-index: 200;
+}
+.overflow-x-visible {
+  overflow-x: visible !important;
+}
+.overflow-y-visible {
+  overflow-y: visible !important;
+}
+.overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+@media screen and (max-width: 960px) {
+  .position-md-fixed.hide {
+    position: fixed !important;
+    left: -80px;
+    top: 0px;
+  }
+  .position-md-fixed {
+    position: fixed !important;
+    left: -10px;
+    top: 0px;
+  }
+  .toggleAside {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 5px 0px 10px rgba($color: #000000, $alpha: .15);
+    right: -60px;
+    top: 45%;
+    z-index: 1000;
+    bottom: 55%;
+    transform: rotate(0deg) !important;
+    transition: all .3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      background-color: gainsboro;
+    }
+  }
+  .toggleAside.hide {
+    transform: rotate(180deg) !important;
+    right: -30px;
+    box-shadow: -5px 0px 10px rgba($color: #000000, $alpha: .15) !important;
+  }
+  .toggleAsideRight {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 5px 0px 10px rgba($color: #000000, $alpha: .15);
+    left: -60px;
+    top: 45%;
+    z-index: 1000;
+    bottom: 55%;
+    transform: rotate(0deg) !important;
+    transition: all .3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      background-color: gainsboro;
+    }
+  }
+  .toggleAsideRight.hide {
+    transform: rotate(180deg) !important;
+    left: -30px;
+    box-shadow: -5px 0px 10px rgba($color: #000000, $alpha: .15) !important;
+  }
+}
+.overlay-black {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: .6);
+}

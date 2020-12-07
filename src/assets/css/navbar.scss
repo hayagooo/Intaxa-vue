@@ -1,0 +1,244 @@
+.mNav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.nav-brand-text {
+  color: white;
+}
+.nav-brand-text {
+  transition: all .5s;
+}
+.items-hide {
+  position: absolute;
+  top: 500px !important;
+  transition: all 1s ease-in-out !important;
+  opacity: 0;
+  visibility: hidden;
+}
+.widget-nav {
+  transition: all .4s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+.menu-items {
+  z-index: 1100;
+  transition: all 2s ease-in-out;
+  left: 0;
+  top: 100px;
+  .menu-item {
+    transition: all .3s ease-in-out;
+    position: relative;
+    &:hover {
+      cursor: pointer;
+    }
+    h1 {
+      font-size: 2.8rem;
+      transition: all .3s ease-in-out;
+      -webkit-text-stroke: 1.3px black;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+    }
+    h1::after {
+      transition: all .3s ease-in-out;
+      content: '';
+      font-size: 2.8rem;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      color: black;
+    }
+  }
+
+  .menu-item:nth-child(1) h1::after {
+    content: 'BOOKMARK';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: black;
+    -webkit-text-fill-color: transparent;
+  }
+  .menu-item:nth-child(1) h1:hover::after {
+    content: 'BOOKMARK';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+  .menu-item.active-item h1:hover::after {
+    top: 0 !important;
+    right: 0 !important;
+  }
+  .menu-item.active-item:nth-child(1) h1::after {
+    content: 'BOOKMARK';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+  .menu-item:nth-child(2) h1::after {
+    content: 'MAGAZINES';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: black;
+    -webkit-text-fill-color: transparent;
+  }
+  .menu-item:nth-child(2) h1:hover::after {
+    content: 'MAGAZINES';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+  .menu-item.active-item:nth-child(2) h1::after {
+    content: 'MAGAZINES';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+
+  .menu-item:nth-child(3) h1::after {
+    content: 'POPULAR';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: black;
+    -webkit-text-fill-color: transparent;
+  }
+  .menu-item:nth-child(3) h1:hover::after {
+    content: 'POPULAR';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+  .menu-item.active-item:nth-child(3) h1::after {
+    content: 'POPULAR';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+  .menu-item:nth-child(4) h1::after {
+    content: 'SIGNIN';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: black;
+    -webkit-text-fill-color: transparent;
+  }
+  .menu-item:nth-child(4) h1:hover::after {
+    content: 'SIGNIN';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+  .menu-item.active-item:nth-child(4) h1::after {
+    content: 'SIGNIN';
+    font-size: 2.8rem;
+    transition: all .3s ease-in-out;
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: black;
+    -webkit-text-fill-color: black;
+  }
+}
+.burger-line {
+  .line {
+    background-color: white;
+    transition: all .5s ease-in-out;
+    height: 4px;
+    position: relative;
+    border-radius: 10px;
+  }
+  .line:nth-child(1) {
+    width: 40px;
+  }
+  .line:nth-child(2) {
+    margin-top: 7px;
+    width: 25px;
+    left: 15px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.burger-line.menu-closable {
+  .line {
+    background-color: black;
+  }
+  .line:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .line:nth-child(2) {
+    transform: rotate(-45deg);
+    left: 0;
+    width: 40px;
+    top: -10px;
+  }
+}
+.widget-sm {
+  bottom: -100px;
+  left: -200px;
+}
+.menu-nav {
+  width: 200%;
+  height: 100%;
+  background-color: rgba($color: #ffff, $alpha: .9);
+  transform: skew(15deg);
+  z-index: 900;
+  top: 0;
+  right: -36%;
+  transition: all 2s ease-in-out;
+}
+.menu-nav.menu-hide {
+  width: 0;
+  opacity: 0;
+  right: -13%;
+}
+.menu-nav.menu-show {
+  width: 200%;
+  opacity: 1;
+}
+.brand-nav {
+  display: inline-block;
+  &:hover {
+    cursor: pointer !important;
+  }
+}
