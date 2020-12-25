@@ -5,7 +5,7 @@ export default {
   data() {
     return {
       datasets: {
-        labels: ['Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov'],
+        labels: ['Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
         datasets: [
           {
             label: 'Rating',

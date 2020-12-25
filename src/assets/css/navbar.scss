@@ -179,6 +179,12 @@
     -webkit-text-fill-color: black;
   }
 }
+@media screen and (max-width: 768px) {
+  .menu-item h1::after, .menu-item.active-item h1::after {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+}
 .burger-line {
   .line {
     background-color: white;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="py-4 pl-md-5 ml-md-0 pl-4 ml-3">
+    <div class="py-4 pl-md-5 ml-md-0 pl-4 ml-3" @click="moveRouter('Home')" style="cursor: pointer">
       <img src="@/assets/img/logo/intaxa.png" height="35px" class="d-inline-block" alt="">
       <div class="d-inline-block" v-if="showAside == true">
         <h4 class="viga text-blue d-inline-block position-relative ml-2" style="top: 5px">INTAXA</h4>
@@ -14,17 +14,17 @@
         </div>
         <span class="ml-3" v-show="showAside == true">Dashboard</span>
       </div>
-      <!-- <div class="list-menu mb-4" :class="{'active': this.$route.name == 'DashboardProfile', 'aside-hide': showAside == false}" @click="moveRouter('DashboardProfile')">
-        <div class="d-inline-block icon-menu">
-          <font-awesome-icon class="mx-md-3 mx-2" icon="user"></font-awesome-icon>
-        </div>
-        <span class="ml-3" v-show="showAside == true">Profile</span>
-      </div> -->
       <div class="list-menu mb-4" :class="{'active': this.$route.name == 'DashboardMagazines' || this.$route.name == 'DashboardTopics', 'aside-hide': showAside == false}" @click="moveRouter('DashboardMagazines')">
         <div class="d-inline-block icon-menu">
           <font-awesome-icon class="mx-md-3 mx-2" icon="book"></font-awesome-icon>
         </div>
         <span class="ml-3" v-show="showAside == true">Magazines</span>
+      </div>
+      <div class="list-menu mb-4" :class="{'active': this.$route.name == 'DashboardProfile', 'aside-hide': showAside == false}" @click="moveRouter('DashboardProfile')">
+        <div class="d-inline-block icon-menu">
+          <font-awesome-icon class="mx-md-3 mx-2" icon="user"></font-awesome-icon>
+        </div>
+        <span class="ml-3" v-show="showAside == true">Profile</span>
       </div>
       <div class="list-menu mb-4" :class="{'active': this.$route.name == 'DashboardTeams', 'aside-hide': showAside == false}" @click="moveRouter('DashboardTeams')">
         <div class="d-inline-block icon-menu">
@@ -32,12 +32,12 @@
         </div>
         <span class="ml-3" v-show="showAside == true">Teams</span>
       </div>
-      <div class="list-menu mb-4" :class="{'active': this.$route.name == 'DashboardSetting', 'aside-hide': showAside == false}" @click="moveRouter('DashboardSetting')">
+      <!-- <div class="list-menu mb-4" :class="{'active': this.$route.name == 'DashboardSetting', 'aside-hide': showAside == false}" @click="moveRouter('DashboardSetting')">
         <div class="d-inline-block icon-menu">
           <font-awesome-icon class="mx-md-3 mx-2" icon="cog"></font-awesome-icon>
         </div>
         <span class="ml-3" v-show="showAside == true">Settings</span>
-      </div>
+      </div> -->
     </div>
     <div class="w-100 overflow-x-hidden position-absolute" style="height: 285px; bottom: 0px">
       <img src="@/assets/img/pattern/pattern.png" class="position-absolute" alt="pattern" width="160px" style="opacity: .5; bottom: 0px">
@@ -56,7 +56,7 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
   data() {
     return {
-
+      setUser: [],
     }
   },
   mounted() {
@@ -72,13 +72,16 @@ export default {
   },
   methods: {
     ...mapMutations("Dashboard", ["set_asideName", "set_showAside"]),
+    ...mapMutations("Auth", ["set_user", "set_token"]),
     moveRouter(path) {
       this.set_asideName(path)
       this.$router.push({name: path})
     },
     onLogout() {
       localStorage.removeItem('api_token')
-      this.$router.push({name: 'Login'})
+      this.set_user([])
+      this.set_token(null)
+      window.location.reload()
     }
   }
 }

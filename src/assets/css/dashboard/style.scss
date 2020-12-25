@@ -129,7 +129,7 @@ $color-cyan: #46FFFF;
   }
   &::-webkit-scrollbar {
     transition: all .3s ease-in-out;
-    width: 0px;
+    width: 1px;
   }
   &::-webkit-scrollbar-track {
     transition: all .3s ease-in-out;

@@ -3,14 +3,14 @@
     <b-row>
       <b-col class="bg-light bg-full-page bg-main" style="overflow-y: auto" :class="{'col-lg-9 col-md-8': getAsideDashboard == true, 'col-md-11': getAsideDashboard == false}">
         <div class="pt-5 px-4 mt-5 text-left">
-          <h3 class="mt-4 viga">Your Magazines</h3>
+          <h3 class="mt-4 mb-4 viga">Your Magazines</h3>
           <b-button @click="setSort('DESC')" :class="{'px-4 py-2 btn btn-blue-white rad shadow text-white btn-sm': sort == 'DESC', 'px-4 py-2 btn btn-light rad btn-sm mx-4': sort !== 'DESC'}">Recently</b-button>
           <b-button @click="setSort('Popular')" :class="{'px-4 py-2 btn btn-blue-white rad shadow text-white btn-sm': sort == 'Popular', 'px-4 py-2 btn btn-light rad btn-sm mx-4': sort !== 'Popular'}">Popular</b-button>
           <b-button @click="setSort('ASC')" :class="{'px-4 py-2 btn btn-blue-white rad shadow text-white btn-sm': sort == 'ASC', 'px-4 py-2 btn btn-light rad btn-sm mx-4': sort !== 'ASC'}">Oldest</b-button>
         </div>
         <div class="pl-3 pr-0" v-if="magazines != undefined && magazines != null">
           <b-row :options="magazineSlider" v-if="magazines.length > 0" class="magazineSlide">
-            <b-col md="4" class="mt-5" v-for="magazine in magazines" :key="magazine.id">
+            <b-col md="4" class="mt-5" v-for="magazine in magazines" :key="magazine.id" @click="toMagazine(magazine.id)">
               <div class="mx-3">
                 <div class="previewMagazine">
                   <div class="image">
@@ -113,6 +113,9 @@ export default {
     setSort(sort) {
       this.sort = sort
       this.getMagz()
+    },
+    toMagazine(id) {
+      this.$router.push({name: 'DashboardTopics', params: {id: id}})
     },
     getMagz() {
       this.$http.post(`${this.api}sort/magazine`, {

@@ -11,7 +11,7 @@
           </b-col>
           <b-col :class="{'col-5': getAsideDashboard == true, 'col-lg-3 col-5': getAsideDashboard == false, 'col-lg-3 col-5': this.$route.name == 'DashboardProfile' || this.$route.name == 'DashboardTeams' || this.$route.name == 'DashboardSetting' || this.$route.name == 'DashboardTopics'}" class="text-right">
             <div class="notif-btn d-inline-block position-relative shadow-sm mr-4">
-              <div class="new-notif">5</div>
+              <!-- <div class="new-notif">5</div> -->
               <font-awesome-icon icon="bell" class="notif-icon"></font-awesome-icon>
             </div>
           </b-col>

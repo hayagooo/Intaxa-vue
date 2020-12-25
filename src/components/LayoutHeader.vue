@@ -1,12 +1,12 @@
 <template>
-  <div v-show="$route.path === '/login' || $route.path === '/register' ? false : true" v-if="$route.name !== 'Magazine'">
+  <div v-show="$route.path === '/login' || $route.path === '/register' ? false : true" v-if="$route.name !== 'Magazine' && $route.name !== 'Dashboard'">
     <header>
       <b-container fluid class="position-absolute w-100 mNav py-3">
         <b-row>
           <b-col cols="6" class="text-left px-5 py-3">
             <div v-if="$route.name !== 'Magazine'" class="brand-nav" @click="moveRouter('Home')">
               <img :src="require(`../assets/img/logo/${navBrandImg}`)" width="30px" class="d-inline-block nav-brand-img" alt="Intaxa">
-              <h3 class="d-inline-block viga text-white ml-2 position-relative nav-brand-text" :class="{'text-black': menuShow == true}" style="top: 6px">INTAXA</h3>
+              <h3 class="viga text-white ml-2 position-relative nav-brand-text d-md-inline-block d-none" :class="{'text-black': menuShow == true}" style="top: 6px">INTAXA</h3>
             </div>
           </b-col>
           <b-col cols="6" v-show="$route.name === 'Home' || $route.name === 'Bookmark' || $route.name === 'Popular' ? true : false" class="text-right px-5 py-3">
@@ -56,6 +56,7 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -63,6 +64,15 @@ export default {
       routeType: this.$route.matched[0].props.default.type,
       navBrandImg: 'intaxa-white.png'
     }
+  },
+  computed: {
+    ...mapGetters({
+      user: 'Auth/getUser',
+      isAuth: 'Auth/isAuth',
+      token: 'Auth/getToken',
+      api: 'Api/getApi',
+      web: 'Api/getWeb',
+    })
   },
   methods: {
     moveRouter(name) {

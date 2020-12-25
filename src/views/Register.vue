@@ -12,7 +12,7 @@
     :color="loading.color"></loading>
     <b-container fluid class="px-0 position-fixed w-100 bg-full-page bg-main">
       <b-row>
-        <b-col cols="6">
+        <b-col cols="6" class="bg-full-page">
           <div class="team-login p-4 text-left" @click="moveHome()">
             <img src="@/assets/img/logo/intaxa.png" width="30px" alt="sidecript" class="d-inline-block">
             <h5 class="viga d-inline-block position-relative ml-2" style="top: 4px">INTAXA</h5>
@@ -23,10 +23,11 @@
             <p>Mengembangkan Minat Literasi</p>
           </div>
           <div class="developed-login position-absolute px-4 py-3 d-md-inline-block d-none" style="bottom: 0px; left: 10px">
-            <p style="font-size: .85rem">@2020 Developed by Sidescript dev</p>
+            <img src="@/assets/img/logo/sidescript.png" width="30px" alt="sidecript" class="d-inline-block">
+            <p class="d-inline-block ml-2" style="font-size: .85rem">@2020 Developed by Sidescript dev</p>
           </div>
         </b-col>
-        <b-col cols="6" class="bg-full-page bg-gradient-blue-cyan">
+        <b-col cols="6" class="bg-full-page bg-gradient-blue-cyan" style="left: auto !important; right: 0px !important">
           <div class="text-left pl-5 ml-5">
             <div class="team-login p-4 text-right">
               <h5 class="position-relative mr-2 text-white d-md-inline-block d-none" style="top: 4px">SMKN 1 Purwosari</h5>
@@ -34,7 +35,7 @@
             </div>
             <h1 class="viga text-white text-intaxa-login">INT<br>AXA</h1>
             <div class="position-absolute text-right w-100 px-5 py-3" style="bottom: 0px; right: 0px">
-              <b-button class="btn btn-white rad-md py-3 px-5" :to="{name: 'Login'}">Masuk <font-awesome-icon class="ml-lg-2 ml-0" icon='angle-right'></font-awesome-icon></b-button>
+              <b-button class="btn btn-white rad-md py-3 px-5 text-sm" :to="{name: 'Login'}">Sign In <font-awesome-icon class="ml-lg-2 ml-0" icon='angle-right'></font-awesome-icon></b-button>
             </div>
           </div>
         </b-col>
@@ -44,7 +45,7 @@
       <b-row class="pt-4 mb-5">
         <b-col class="pt-md-5 pt-3 mt-md-4 mt-0" lg="4" offset-lg="4" md="6" offset-md="3" sm="8" offset-sm="2">
           <div class="w-100 mShadow p-3 bg-white rad mb-5">
-            <h2 class="viga mt-3 mb-0">Daftar</h2>
+            <h2 class="viga mt-3 mb-0">Sign Up</h2>
             <div class="text-center">
               <div class="line-blue d-inline-block bg-blue rad"></div>
             </div>
@@ -206,10 +207,13 @@ export default {
         password: this.password,
         level: 'User',
       }).then((response) => {
-        this.userId = response.data.data.id
-        this.api_token = response.data.data.api_token
-        this.upload()
         console.log(response)
+        if(response.data.code == 200) {
+          this.userId = response.data.data.id
+          this.api_token = response.data.data.api_token
+          this.upload()
+          console.log(response)
+        }
       })
     },
     upload() {

@@ -23,7 +23,7 @@
       </b-row>
     </b-container>
     <b-container fluid class="w-100 position-absolute pb-md-0 pb-5 mb-md-0 mb-5" style="overflow-x: hidden !important; top: 8%;">
-      <b-container style="z-index: 1100">
+      <b-container style="z-index: 1100" v-if="magazines != undefined && magazines != null">
         <slick v-if="magazines.length > 0" @beforeChange="handleBeforeChange" @afterChange="handleAfterChange" ref="slick" class="slider-magazine position-relative w-100" :options="magazineSlider">
         <div class="w-100" v-for="magazine in magazines" :key="magazine.id">
           <b-col id="" lg="10" offset-lg="1">
@@ -47,30 +47,46 @@
                     <b-button class="mr-2 btn btn-transparent btn-ability border-white" @click="showShare(magazine.id)"><font-awesome-icon icon="share-alt"></font-awesome-icon></b-button>
                     <div v-if="bookmark.find(bk => bk.id == magazine.id)" class="d-inline-block">
                       <div class="d-inline-block" v-for="(id, index) in bookmark" :key="index">
-                        <b-button v-if="magazine.id == id.id" class="mr-2 btn btn-white text-blue btn-ability border-white" @click="removeBookmark(magazine.id, index)"><font-awesome-icon :icon="['far', 'bookmark']"></font-awesome-icon></b-button>
+                        <button v-if="magazine.id == id.id" class="mr-2 btn btn-white text-blue btn-ability border-white" @click="removeBookmark(magazine.id, index)"><font-awesome-icon :icon="['far', 'bookmark']"></font-awesome-icon></button>
                       </div>
                     </div>
                     <div v-else class="d-inline-block">
-                      <b-button class="mr-2 btn btn-transparent btn-ability border-white" @click="bookmarkToggleable(magazine.id, index)"><font-awesome-icon :icon="['far', 'bookmark']"></font-awesome-icon></b-button>
+                      <button class="mr-2 btn btn-transparent btn-ability border-white" @click="bookmarkToggleable(magazine.id, index)"><font-awesome-icon :icon="['far', 'bookmark']"></font-awesome-icon></button>
                     </div>            
                     <div v-if="isAuth" class="d-inline-block">
                       <div class="d-inline-block">
-                        <b-button :class="{'mr-2 btn btn-transparent btn-ability border-white': magazine.rating.find(rate => rate.user_id === user.id) == null, 'mr-2 btn btn-white text-blue btn-ability border-white': magazine.rating.find(rate => rate.user_id === user.id) != null}" @click="showRating(magazine.id)"><font-awesome-icon :icon="['far', 'star']"></font-awesome-icon></b-button>
+                        <button :class="{'mr-2 btn btn-transparent btn-ability border-white text-white': magazine.rating.find(rate => rate.user_id === user.id) == null, 'mr-2 btn btn-white text-blue btn-ability border-white': magazine.rating.find(rate => rate.user_id === user.id) != null}" @click="showRating(magazine.id)"><font-awesome-icon :icon="['far', 'star']"></font-awesome-icon></button>
                       </div>
                     </div>
-                    <div v-else>
-                      <b-button class="mr-2 btn btn-transparent btn-ability border-white" @click="showRating(magazine.id)"><font-awesome-icon :icon="['far', 'star']"></font-awesome-icon></b-button>
+                    <div v-else class="d-inline-block">
+                      <button class="mr-2 btn btn-transparent btn-ability border-white text-white" @click="showRating(magazine.id)"><font-awesome-icon :icon="['far', 'star']"></font-awesome-icon></button>
                     </div>
                   </div>
                   <p class="text-white pt-4 pb-4">{{ magazine.description }}</p>
-                  <b-button class="btn btn-white px-5 py-3 rad-md" :to="{name: 'Magazine', params: {id: magazine.id}}">Read Now</b-button>
-                  <b-button class="btn btn-white p-3 px-4 ml-3 rad-md" @click="modalDownload(magazine.id)"><font-awesome-icon icon="download"></font-awesome-icon></b-button>
+                  <button class="btn btn-white px-5 py-3 rad-md" @click="movePage('Magazine', magazine.id)">Read Now</button>
+                  <button class="btn btn-white p-3 px-4 ml-3 rad-md" @click="modalDownload(magazine.id)"><font-awesome-icon icon="download"></font-awesome-icon></button>
                 </b-col>
               </b-row>
             </div>
           </b-col>
         </div>
         </slick>
+        <div v-else class="w-100">
+          <b-container style="z-index: 1100" class="pt-5">
+            <b-col md="6" offset-md="3" class="pt-5 text-white">
+              <img src="@/assets/img/illust/no_data.svg" class="w-50" alt="No data">
+              <h3 class="viga text-whie mb-1 mt-4">Tunggu Sebentar</h3>
+              <p class="text-sm">Kami masih menyiapkan majalahnya</p>
+            </b-col>
+          </b-container>
+        </div>
+      </b-container>
+      <b-container v-else style="z-index: 1100">
+        <b-col md="6" offset-md="3" class="pt-5 text-white">
+            <img src="@/assets/img/illust/no_data.svg" width="300px" alt="No data">
+            <h3 class="viga text-whie mb-1 mt-4">Intaxa Belum Upload Gan..</h3>
+            <p class="text-sm">Ayo mada.. ndang di upload majalahe. akeh seng ngenteni iki wkwk</p>
+        </b-col>
       </b-container>
     </b-container>    
     <b-modal ref="modal-download" id="modal-download" class="moda-standart" centered size="md" hide-header hide-footer>
@@ -347,6 +363,9 @@ export default {
     },
     onCancel() {
       //
+    },
+    movePage(name, id) {
+      this.$router.push({name: name, params: {id: id}})
     },
     hideRating() {
       this.$refs['modal-rating'].hide()

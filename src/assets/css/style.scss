@@ -1,12 +1,13 @@
 $color-blue: #0D6AE3;
 $color-cyan: #46FFFF;
 
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
 @font-face {
-  font-family: viga;
-  src: url('/../fonts/Viga-Regular.ttf');
+  font-family: Viga;
+  src: url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
 }
 .viga {
-  font-family: viga;
+  font-family: Viga;
 }
 .bg-blue {
   background-color: $color-blue !important;
@@ -134,6 +135,14 @@ $color-cyan: #46FFFF;
 .text-gold {
   color: #ffd720;
 }
+
+.bg-white {
+  background-color: white;
+}
+.text-white {
+  color: white;
+}
+
 .btn-transparent {
   background-color: transparent !important;
 }
@@ -143,7 +152,7 @@ $color-cyan: #46FFFF;
   &:hover {
     border: 2px solid transparent !important;
     background-color: white !important;
-    color: black !important;
+    color: black;
     box-shadow: 0px .25rem .6rem -.15rem rgba(0, 0, 0, 0.2);
   }
 }
@@ -156,23 +165,46 @@ $color-cyan: #46FFFF;
     background: linear-gradient(to right, #06479d, #26c5c5);
   }
 }
+.text-dark {
+  color: black !important;
+}
+@media screen and (max-width: 480px) {
+  .text-sm-small {
+    font-size: .8rem !important;
+  }
+  .btn-sm-small {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: .75rem !important;
+  }
+}
 .btn-white {
   background-color: white !important;
   border: none !important;
   outline: none !important;
-  color: black !important;
-  transition: all 3s;
+  color: black;
+  transition: all .3s;
   &:hover {
     background-color: gainsboro !important;
     box-shadow: 2px 44px 58px -5px rgba(0, 0, 0, 0.11);
   }
 }
+.dark-mode {
+  background-color: #121212 !important;
+  color: white !important;
+}
+.text-white {
+  color: white !important;
+}
+.text-white {
+  color: white !important;
+}
 .btn-blue-white {
   background-color: $color-blue !important;
   border: none !important;
   outline: none !important;
-  color: black !important;
-  transition: all 3s;
+  color: black;
+  transition: all .3s;
   &:hover {
     background-color: #06479d !important;
     box-shadow: 2px 44px 58px -5px rgba(0, 0, 0, 0.11);
